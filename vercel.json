@@ -11,5 +11,6 @@
       "src": "/(.*)",
       "dest": "server/src/index.js"
     }
-  ]
+  ],
+  "installCommand": "npm install --legacy-peer-deps"
 }
