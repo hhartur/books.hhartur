@@ -1,0 +1,28 @@
+{
+  "name": "books-hhartur-server",
+  "version": "1.0.0",
+  "description": "books.hhartur backend API",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "bcryptjs": "^3.0.3",
+    "@supabase/supabase-js": "^2.106.2",
+    "cloudinary": "^2.10.0",
+    "multer": "^1.4.5-lts.2",
+    "multer-storage-cloudinary": "^4.0.0",
+    "cors": "^2.8.5",
+    "helmet": "^8.0.0",
+    "express-rate-limit": "^7.5.0",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.5.0",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

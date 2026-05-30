@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>books.hhartur — leitor</title>
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ededed' stroke-width='2'><path d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'/><path d='M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z'/></svg>" />
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="pdf-toolbar">
+    <a href="/books.html" class="btn btn-ghost btn-sm">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6" />
+      </svg>
+      Voltar
+    </a>
+    <span class="pdf-toolbar-title" id="pdfTitle">—</span>
+    <button id="downloadBtn" class="btn btn-ghost btn-sm">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+        <polyline points="7 10 12 15 17 10" />
+        <line x1="12" y1="15" x2="12" y2="3" />
+      </svg>
+      Baixar
+    </button>
+  </div>
+
+  <div id="errorState" class="empty-state hidden" style="flex:1;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5">
+      <circle cx="12" cy="12" r="10" />
+      <line x1="12" y1="8" x2="12" y2="12" />
+      <line x1="12" y1="16" x2="12.01" y2="16" />
+    </svg>
+    <p>URL inválida ou sessão expirada.</p>
+    <a href="/books.html" class="btn btn-ghost btn-sm" style="margin-top:8px;">Voltar à biblioteca</a>
+  </div>
+
+  <iframe id="pdfFrame" class="pdf-frame" style="flex:1;"></iframe>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/reader.js"></script>
+</body>
+
+</html>

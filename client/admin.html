@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>books.hhartur — dashboard</title>
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ededed' stroke-width='2'><path d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'/><path d='M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z'/></svg>" />
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="/books.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.5">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+        </svg>
+        books.hhartur
+      </a>
+      <div class="navbar-actions">
+        <div class="navbar-user">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+          <span id="navUsername">—</span>
+        </div>
+        <a href="/books.html" class="btn btn-ghost btn-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+          </svg>
+          Biblioteca
+        </a>
+        <button id="logoutBtn" class="btn btn-ghost btn-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+            <polyline points="16 17 21 12 16 7" />
+            <line x1="21" y1="12" x2="9" y2="12" />
+          </svg>
+          Sair
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard Layout -->
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-nav">
+        <div class="sidebar-section">Gerenciar</div>
+        <button class="sidebar-item active" data-section="books">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+          </svg>
+          Livros
+        </button>
+        <button class="sidebar-item" data-section="users" id="usersMenuBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+          Usuários
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <div class="main-content">
+
+      <!-- ─── BOOKS SECTION ─── -->
+      <section id="section-books">
+        <div class="flex items-center justify-between gap-4" style="margin-bottom:20px; flex-wrap:wrap;">
+          <h2>Livros</h2>
+          <div class="flex gap-2 items-center" style="flex-wrap:wrap;">
+            <div class="search-wrap" style="width:220px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <input class="form-input search-input" id="bookSearch" type="search" placeholder="Buscar..." />
+            </div>
+            <button class="btn btn-primary btn-sm" id="addBookBtn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+              Adicionar livro
+            </button>
+          </div>
+        </div>
+
+        <div id="booksAlert" class="alert hidden" style="margin-bottom:16px;"></div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Adicionado em</th>
+                <th style="width:140px;">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="booksTableBody">
+              <tr>
+                <td colspan="4" style="text-align:center;padding:32px;color:var(--text-3);">
+                  <div class="spinner" style="margin:0 auto;"></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="booksPagination" class="flex items-center justify-between mt-4 hidden">
+          <span class="text-sm text-muted" id="booksPageInfo"></span>
+          <div class="pagination" id="booksPageBtns"></div>
+        </div>
+      </section>
+
+      <!-- ─── USERS SECTION ─── -->
+      <section id="section-users" class="hidden">
+        <div class="flex items-center justify-between gap-4" style="margin-bottom:20px;">
+          <h2>Usuários</h2>
+          <button class="btn btn-primary btn-sm" id="addUserBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+            Novo usuário
+          </button>
+        </div>
+
+        <div id="usersAlert" class="alert hidden" style="margin-bottom:16px;"></div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Criado em</th>
+                <th>Último acesso</th>
+                <th style="width:160px;">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="usersTableBody">
+              <tr>
+                <td colspan="6" style="text-align:center;padding:32px;color:var(--text-3);">
+                  <div class="spinner" style="margin:0 auto;"></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ─── MODAL: Livro ─── -->
+  <div class="modal-backdrop" id="bookModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="bookModalTitle">Adicionar livro</h2>
+        <button class="btn btn-icon btn-ghost btn-sm" data-close="bookModal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <div id="bookModalAlert" class="alert alert-error hidden"></div>
+
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div class="form-group">
+          <label class="form-label">Título *</label>
+          <input class="form-input" type="text" id="bookTitle" placeholder="Título do livro" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Autor</label>
+          <input class="form-input" type="text" id="bookAuthor" placeholder="Nome do autor" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Descrição</label>
+          <textarea class="form-textarea" id="bookDesc" placeholder="Descrição opcional..."></textarea>
+        </div>
+        <div class="form-group" id="pdfUploadGroup">
+          <label class="form-label">Arquivo PDF *</label>
+          <div class="file-drop" id="fileDrop">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.5">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+            </svg>
+            <span id="fileDropText">Clique para selecionar PDF</span>
+            <span class="text-xs text-muted">Máx. 100MB</span>
+            <input type="file" id="pdfInput" accept=".pdf" class="hidden" />
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-ghost" id="bookCloseBtn" data-close="bookModal">Cancelar</button>
+        <button class="btn btn-primary" id="bookSaveBtn">
+          <span id="bookSaveTxt">Salvar</span>
+          <span id="bookSaveSpinner" class="spinner hidden"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── MODAL: Usuário ─── -->
+  <div class="modal-backdrop" id="userModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="userModalTitle">Novo usuário</h2>
+        <button class="btn btn-icon btn-ghost btn-sm" data-close="userModal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <div id="userModalAlert" class="alert alert-error hidden"></div>
+
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div class="form-group">
+          <label class="form-label">Username *</label>
+          <input class="form-input mono" type="text" id="userUsername" placeholder="username" autocomplete="off" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Senha *</label>
+          <input class="form-input" type="password" id="userPassword" placeholder="Mínimo 6 caracteres"
+            autocomplete="new-password" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Role *</label>
+          <select class="form-select" id="userRole">
+            <option value="reader">Reader — somente leitura</option>
+            <option value="editor">Editor — adiciona livros</option>
+            <option value="admin" id="adminOption">Admin — gerencia tudo</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-ghost" data-close="userModal">Cancelar</button>
+        <button class="btn btn-primary" id="userSaveBtn">
+          <span id="userSaveTxt">Criar</span>
+          <span id="userSaveSpinner" class="spinner hidden"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── MODAL: Confirmar delete ─── -->
+  <div class="modal-backdrop" id="confirmModal">
+    <div class="modal" style="max-width:380px;">
+      <div class="modal-header">
+        <h2>Confirmar remoção</h2>
+      </div>
+      <p class="text-muted text-sm" id="confirmMsg">Tem certeza? Esta ação não pode ser desfeita.</p>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" data-close="confirmModal">Cancelar</button>
+        <button class="btn btn-danger" id="confirmOkBtn">Remover</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+
+</html>
